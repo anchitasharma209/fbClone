@@ -1,0 +1,13 @@
+<header>
+    FB //header
+</header>
+
+<ul>
+    <% if (locals.user){ %>
+        <li><a href="/users/profile">profile</a></li>
+        <li><a href="">logout</a></li>
+<% }else{ %>
+    <li><a href="/users/sign-up">signup</a></li>
+    <li><a href="/users/sign-in">signin</a></li>
+<% } %>
+</ul>

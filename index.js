@@ -16,4 +16,4 @@ app.set('layout extractScripts', true);
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`)
-})
+});

@@ -12,4 +12,15 @@ passport.use(new LocalStrategy(
       });
     }
   ));
+  //serialising the user which key is to be kept in the cookies
+  passport.serializeUser (function(user,done){
+    done(null,user.id)
+  });
+  passport.deserializeUser=(function(id, done) {
+    User.findById(id, function(err, user) {
+      done(err, user);
+  });
+});
+  passport.checkAuthentication={}
+  passport.setAuthenticatedUser={}
   module.exports = passport;

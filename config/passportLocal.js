@@ -1,5 +1,6 @@
 var express = require("express")
-var passport = require("passport")
+var passport = require("passport");
+const User = require("../models/user");
 var LocalStrategy = require("passport-local").Strategy;
 
 passport.use(new LocalStrategy(
@@ -16,9 +17,14 @@ passport.use(new LocalStrategy(
   passport.serializeUser (function(user,done){
     done(null,user.id)
   });
+  //deserializing the user from the key in the cookies
   passport.deserializeUser=(function(id, done) {
+    
     User.findById(id, function(err, user) {
-      done(err, user);
+      if(err){
+        console.log(err)
+      }
+      return done(null,user)
   });
 });
   passport.checkAuthentication={}

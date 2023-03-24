@@ -5,17 +5,14 @@ var passport = require('passport');
 var session = require('express-session');
 const MongoStore = require('connect-mongo');
 const cookieParser = require('cookie-parser') 
-//var passportLocal = require('passport-local');
-
-//require('./config/passport-local').boot(passportLocal, config);
-//const passportLocal = require('./config/passport-local');
+const passportLocal = require('./config/passport-local');
 const port = 3000
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose')
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: 'facebook',
   resave: false,

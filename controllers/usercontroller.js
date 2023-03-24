@@ -2,7 +2,7 @@ const User = require("../models/user")
 
 const profile = function (req,res) {
     return res.render('user_profile',{
-        title:"raman"
+        title:"xyz"
     })
 }
 
